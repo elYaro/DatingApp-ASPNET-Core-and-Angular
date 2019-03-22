@@ -14,24 +14,8 @@
   </ul>
 
   <form #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-    <input class="form-control mr-sm-2" type="text" name="username" #username = "ngModel" placeholder="Username" required [(ngModel)]="model.username">
-    <input class="form-control mr-sm-2" type="password" name="password" #password="ngModel" placeholder="Password" required [(ngModel)]="model.password">
-    <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+    <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required [(ngModel)]="model.username">
+    <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required [(ngModel)]="model.password">
+    <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
   </form>
-  
 </nav>
-
-<pre>
-   Form Valid: {{loginForm.valid}}
-   Form Touched: {{loginForm.touched}}
-   Form Dirty : {{loginForm.dirty}}
-   Form Values : {{loginForm.value | json}} 
-   Username Valid: {{username.valid}}
-   Username Touched: {{username.touched}}
-   Username Dirty : {{username.dirty}}
-   Username Values : {{username.value | json}}
-   Password Valid: {{password.valid}}
-   Password Touched: {{password.touched}}
-   Password Dirty : {{password.dirty}}
-   Password Values : {{password.value | json}} 
-</pre>
